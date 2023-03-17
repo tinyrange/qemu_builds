@@ -26,6 +26,9 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: recursive
+          
+      - name: Install packages
+        run: brew install ninja libffi gettext glib pkg-config pixman
 
       # Runs a single command using the runners shell
       - name: Build QEMU
