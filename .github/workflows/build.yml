@@ -31,6 +31,14 @@ jobs:
 
       - name: Build QEMU
         run: ./build_macos.sh
+
+      - name: Archive binaries
+        uses: actions/upload-artifact@v3
+        with:
+          name: binaries
+          path: |
+            dist
+
   build_windows:
     runs-on: ubuntu-latest
 
@@ -40,10 +48,17 @@ jobs:
           submodules: recursive
 
       - name: Install packages
-        run: sudo apt install -y ninja-build mingw-w64 gcc-mingw-w64
+        run: sudo apt install -y ninja-build mingw-w64 gcc-mingw-w64 g++-mingw-w64 binutils-mingw-w64
 
       - name: Build QEMU
         run: ./build_windows.sh
+
+      - name: Archive binaries
+        uses: actions/upload-artifact@v3
+        with:
+          name: binaries
+          path: |
+            dist
 
   build_linux:
     runs-on: ubuntu-latest
@@ -58,3 +73,10 @@ jobs:
 
       - name: Build QEMU
         run: ./build_linux.sh
+
+      - name: Archive binaries
+        uses: actions/upload-artifact@v3
+        with:
+          name: binaries
+          path: |
+            dist
