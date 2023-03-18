@@ -11,5 +11,5 @@ mkdir -p $DIST
 
 cp patches/meson.build qemu/meson.build
 
-(cd $BUILD; $QEMU/configure --without-default-features --target-list=x86_64-softmmu --enable-vhost-user --prefix=$DIST)
+(cd $BUILD; $QEMU/configure --without-default-features --target-list=x86_64-softmmu --prefix=$DIST)
 (cd $BUILD; ninja install)
