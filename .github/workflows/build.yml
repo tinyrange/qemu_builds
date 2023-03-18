@@ -45,11 +45,11 @@ jobs:
 
       - name: Install packages
         shell: msys2 {0}
-        run: C:\msys64\usr\bin\bash.exe ./setup_windows.sh
+        run: ./setup_windows.sh
 
       - name: Build QEMU
         shell: msys2 {0}
-        run: C:\msys64\usr\bin\bash.exe ./build_windows.sh
+        run: ./build_windows.sh
 
       - name: Archive binaries
         uses: actions/upload-artifact@v3
