@@ -349,9 +349,7 @@ have_tpm = get_option('tpm') \
 
 # vhost
 have_vhost_user = get_option('vhost_user') \
-  .disable_auto_if(targetos != 'linux') \
-  .require(targetos != 'windows',
-           error_message: 'vhost-user is not available on Windows').allowed()
+  .disable_auto_if(targetos != 'linux').allowed()
 have_vhost_vdpa = get_option('vhost_vdpa') \
   .require(targetos == 'linux',
            error_message: 'vhost-vdpa is only available on Linux').allowed()
